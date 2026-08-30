@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import './Admin_User.css';
-import AdminNavbar from '../Components/AdminNavbar';
 import ConfirmationModal from '../Components/ConfirmationModal';
 import API_URL from '../config';
 
@@ -61,7 +60,7 @@ function Admin_User() {
 
     return (
         <div className='admin Main'>
-            <AdminNavbar />
+            
             <div className='events_tobeapproved'>
                 <div className='events_approval_header'><h2>User Information</h2></div>
                 <hr />

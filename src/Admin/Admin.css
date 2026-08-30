@@ -1,141 +1,150 @@
-.events_tobeapproved{
-    margin-top: 90px;
-    margin-left: 30px;
+.admin.Main {
+    min-height: 100vh;
+    background: #edf3f0;
+    padding-bottom: 50px;
 }
-.events_ongoing{
-    margin-left: 30px;
-}
-.events_approval_header{
-    margin: 11px;
-}
-.events_ongoing_header{
-    margin: 11px;
-}
-.event_cards{
-    margin-bottom: 10px;
-}
-.event_cards .event_card1{
-    display: flex;
-    background-color: #e8eddf;
-    margin-top: 10px;
-        min-height: 50px;
-    height: auto;
-    width: 1500px;
-    border-radius: 5px;
-    box-shadow: 2px 2px 2px gray;
 
+.events_tobeapproved,
+.events_ongoing {
+    width: 92%;
+    margin: 30px auto;
 }
-.event_card1_name{
-    width: 300px;
-    font-size: 20px;
-    margin-top:20px;
-    margin-left:15px;
-    margin-right: 10px;
-}
-.event_card1_Orgname{
-    width: 300px;
-    font-size: 20px;
-    margin-top:20px;
-    margin-left:15px;
-    margin-right: 10px;
-}
-.event_card1_date{
-    width: 150px;
-    font-size: 20px;
-    margin-top:20px;
-    margin-left:15px;
-    margin-right: 350px;
-}
-.event_card1_dateup{
-    width: 150px;
-    font-size: 20px;
-    margin-top:20px;
-    margin-left:15px;
-    margin-right: 520px;
-}
-.event_btns_app{
-    background-color: lightseagreen;
-    border: none;
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    height: 35px;
-    width: auto;
-    margin: 8px;
-    border-radius: 2px;
-    margin-top: 20px;
-    cursor: pointer;
-    font-size: 16px;
-}
-.event_btns_app:hover{
-    transform: scale(1.1);
-    transition-duration: 0.2s;
-}
-.event_btns_rej{
-    background-color: white;
-    color: black;
-    border: none;
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    height: 35px;
-    width: auto;
-    margin: 8px;
-    border-radius: 3px;
-    margin-top: 20px;
-    cursor: pointer;
-    font-size: 16px;
-}
-.event_btns_rej:hover{
-    transform: scale(1.1);
-    transition-duration: 0.2s;
-}
-.event_btns_vd{
-    background-color: white;
-    color: black;
-    border: none;
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    height: 35px;
-    width: auto;
-    margin: 8px;
-    margin-bottom: 14px;
-    border-radius: 3px;
-    margin-top: 15px;
-    cursor: pointer;
-    font-size: 16px;
-}
-.event_btns_vd:hover{
-    transform: scale(1.1);
-    transition-duration: 0.2s;
-}
-.Card_headers{
+
+.events_approval_header,
+.events_ongoing_header {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-.card1_Eventname{
-    width: 300px;
-    font-size: 20px;
-    margin-top: 10px;
-    margin-right: 10px;
-    text-align: center;
-    font-weight:600;
+
+.events_approval_header h2,
+.events_ongoing_header h2 {
+    margin: 0;
+    font-size: 22px;
+    color: #163b36;
+    font-weight: 700;
 }
-.card1_Organame{
-    width: 300px;
-    font-size: 20px;
-    margin-top: 10px;
-    margin-left: 30px;
-    margin-right: 10px;
-    text-align: center;
-    font-weight:600;
+
+.events_tobeapproved hr {
+    border: none;
+    border-top: 1px solid #c8d3cf;
+    margin: 14px 0 18px;
 }
-.card1_date{
-    width: 300px;
-    font-size: 20px;
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    text-align: center;
-    font-weight:600;
+
+.event_cards {
+    width: 100%;
+}
+
+.event_card1 {
+    width: 100%;
+    min-height: 65px;
+
+    background: white;
+
+    margin-bottom: 10px;
+    padding: 12px 20px;
+
+    box-sizing: border-box;
+
+    border-radius: 8px;
+
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr 1.2fr auto auto;
+
+    align-items: center;
+    gap: 20px;
+
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+
+    transition: 0.2s ease;
+}
+
+.event_card1:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.10);
+}
+
+.event_card1_name {
+    font-weight: 600;
+    color: #24332f;
+}
+
+.event_card1_Orgname,
+.event_card1_date {
+    color: #52625d;
+}
+
+.event_btns_vd {
+    border: none;
+
+    background: #163b36;
+    color: white;
+
+    padding: 9px 16px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+.event_btns_vd:hover {
+    background: #24574f;
+}
+
+.event_btns_rej {
+    border: none;
+
+    background: #c94c4c;
+    color: white;
+
+    padding: 9px 16px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+.event_btns_rej:hover {
+    background: #ad3e3e;
+}
+
+.event_btns_app {
+    border: none;
+
+    background: #36876e;
+    color: white;
+
+    padding: 9px 16px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+.event_btns_app:hover {
+    background: #2d745f;
+}
+
+.Card_headers {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr 1.2fr auto;
+
+    gap: 20px;
+
+    padding: 15px 20px;
+
+    box-sizing: border-box;
+
+    color: #52625d;
+
+    font-size: 14px;
+    font-weight: 600;
 }

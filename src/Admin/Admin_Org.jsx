@@ -1,6 +1,5 @@
 import './Admin_Org.css'
 import { useEffect, useState } from 'react'
-import AdminNavbar from '../Components/AdminNavbar'
 import ConfirmationModal from '../Components/ConfirmationModal'
 import API_URL from '../config'
 
@@ -85,7 +84,7 @@ function Admin_Org() {
 
     return (
         <div className='admin Main'>
-            <AdminNavbar />
+
             <div className='events_tobeapproved'>
                 <div className='events_approval_header'>
                     <h2>Organiser's Information</h2>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './Admin.css';
-import AdminNavbar from '../Components/AdminNavbar';
 import { useNavigate } from 'react-router-dom';
 import API_URL from '../config';
 
@@ -44,8 +43,8 @@ function Admin() {
 
     return (
         <div className='admin Main'>
-            <AdminNavbar />
 
+            
             {/* Pending Events Section */}
             <div className='events_tobeapproved'>
                 <div className='events_approval_header'><h2>Events to be approved</h2></div>

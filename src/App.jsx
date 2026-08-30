@@ -33,11 +33,20 @@ import GuestNavbar from './Components/GuestNavbar.jsx';
 import OrgNav from './Components/OrgNav.jsx';
 import AdminNavbar from './Components/AdminNavbar';
 
+import AdminLogin from './Admin/AdminLogin.jsx';
+
 function AppRoutes({ userRole, setUserRole }) {
   const location = useLocation();
   return (
     <>
-      {location.pathname.startsWith('/admin') ? <AdminNavbar /> : userRole === 'organizer' ? <OrgNav /> : userRole === 'attendee' ? <Navbar /> : <GuestNavbar />}
+      {userRole === 'admin' && location.pathname.startsWith('/admin') 
+        ? <AdminNavbar setUserRole={setUserRole} />
+        : userRole === 'organizer'
+        ? <OrgNav />
+        : userRole === 'attendee'
+        ? <Navbar />
+        : <GuestNavbar />
+      }
       <Routes>
         {/* Landing route */}
         <Route
@@ -45,7 +54,9 @@ function AppRoutes({ userRole, setUserRole }) {
           element={
             !userRole ? <Guesthome /> :
               userRole === 'attendee' ? <Home /> :
-                <Navigate to="/organizer/home" />
+              userRole === 'organizer' ? <Navigate to="/organizer/home" /> :
+              userRole === 'admin' ? <Navigate to="/admin" /> :
+              <Guesthome />
           }
         />
 
@@ -88,10 +99,41 @@ function AppRoutes({ userRole, setUserRole }) {
         <Route path="/organizer/signup" element={!userRole ? <Organizerssignup setUserRole={setUserRole} /> : <Navigate to="/organizer/home" />} />
 
         {/* Admin and fallback */}
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/admin/user" element={<Admin_User />} />
-        <Route path="/admin/organizer" element={<Admin_Org />} />
-        <Route path="/admin/events/:eventId" element={<AdminEvents />} />
+        <Route
+          path="/admin"
+          element={
+            userRole === "admin"
+              ? <Admin />
+              : <AdminLogin setUserRole={setUserRole} />
+          }
+        />
+
+        <Route
+          path="/admin/user"
+          element={
+            userRole === "admin"
+              ? <Admin_User />
+              : <Navigate to="/admin" />
+          }
+        />
+
+        <Route
+          path="/admin/organizer"
+          element={
+            userRole === "admin"
+              ? <Admin_Org />
+              : <Navigate to="/admin" />
+          }
+        />
+
+        <Route
+          path="/admin/events/:eventId"
+          element={
+            userRole === "admin"
+              ? <AdminEvents />
+              : <Navigate to="/admin" />
+          }
+        />
       </Routes>
     </>
   );
