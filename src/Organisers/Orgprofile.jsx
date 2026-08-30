@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ConfirmationModal from "../components/ConfirmationModal";
 import "./Orgprofile.css";
+import API_URL from '../config';
+
 
 function OrgConfirmationModal({ isOpen, onConfirm, onCancel, message }) {
     if (!isOpen) return null;
@@ -37,7 +39,7 @@ function Orgprofile() {
         const fetchProfile = async () => {
             try {
                 console.log("Fetching profile for organiser ID:", organiserId);
-                const res = await fetch(`http://localhost:3000/api/organiser/${organiserId}`);
+                const res = await fetch(`${API_URL}/api/organiser/${organiserId}`);
                 if (!res.ok) {
                     throw new Error(`HTTP error ${res.status}`);
                 }
@@ -71,7 +73,7 @@ function Orgprofile() {
 
     const handleEditConfirm = async () => {
         try {
-            const res = await fetch(`http://localhost:3000/api/organiserp/${organiserId}`, {
+            const res = await fetch(`${API_URL}/api/organiserp/${organiserId}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ name: editName, description: editDescription }) // send lowercase 'description'
@@ -91,7 +93,7 @@ function Orgprofile() {
         const formData = new FormData();
         formData.append("logo", file);
         try {
-            const res = await fetch(`http://localhost:3000/api/organiserp/${organiserId}/logo`, {
+            const res = await fetch(`${API_URL}/api/organiserp/${organiserId}/logo`, {
                 method: "POST",
                 body: formData
             });

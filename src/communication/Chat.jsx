@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import socket from './socket';
 import './Chat.css';
+import API_URL from '../config';
+
 
 function Chat({ role }) {
   const { eventId, organizerId, attendeeId: attendeeParam } = useParams();
@@ -31,7 +33,7 @@ function Chat({ role }) {
   // Fetch chat rooms
   const fetchChatRooms = () => {
     if (!userId || !role) return;
-    fetch(`http://localhost:3000/chat/rooms/${role}/${userId}`)
+    fetch(`${API_URL}/chat/rooms/${role}/${userId}`)
       .then(res => res.json())
       .then(data => setChatRooms(data))
       .catch(err => console.error("Error loading chat rooms:", err));
@@ -45,7 +47,7 @@ function Chat({ role }) {
   // Fetch event name
   useEffect(() => {
     if (!eventId) return;
-    fetch(`http://localhost:3000/events/${eventId}`)
+    fetch(`${API_URL}/events/${eventId}`)
       .then(res => res.json())
       .then(data => {
         if (data?.title) setEventName(data.title);
@@ -95,7 +97,7 @@ function Chat({ role }) {
         sender_role: role === "attendee" ? "organizer" : "attendee"
       };
 
-      fetch("http://localhost:3000/chat/mark-seen", {
+      fetch(`${API_URL}/chat/mark-seen`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(seenPayload)

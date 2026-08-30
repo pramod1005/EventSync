@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import ConfirmationModal from '../components/ConfirmationModal';
 import './Home.css';
+import API_URL from "../config";
+
 
 function Home() {
     const [events, setEvents] = useState([]);
@@ -13,7 +15,7 @@ function Home() {
     const userId = localStorage.getItem("userId");
 
     useEffect(() => {
-        fetch("http://localhost:3000/events/recent")
+        fetch(`${API_URL}/events/recent`)
             .then((res) => res.json())
             .then((data) => setEvents(data))
             .catch((err) => console.error("Error fetching events:", err));
@@ -21,7 +23,7 @@ function Home() {
 
     useEffect(() => {
         if (!userId) return;
-        fetch(`http://localhost:3000/registrations/user/${userId}`)
+        fetch(`${API_URL}/registrations/user/${userId}`)
             .then(res => res.json())
             .then(data => setRegisteredEvents(data))
             .catch(err => console.error("Error fetching registered events:", err));
@@ -30,7 +32,7 @@ function Home() {
     const handleToggleNotification = (regEvent) => {
         setSelectedEvent(regEvent);
         setConfirmAction(() => () => {
-            fetch("http://localhost:3000/notifications/toggle", {
+            fetch(`${API_URL}/notifications/toggle`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

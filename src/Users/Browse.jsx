@@ -5,6 +5,7 @@ import ChatIcon from '../Components/ChatIcon';
 import { useNavigate } from 'react-router-dom';
 import API_URL from "../config";
 
+
 function Browse() {
     const navigate = useNavigate();
     const [selectedStartDate, setSelectedStartDate] = useState('');
@@ -44,7 +45,7 @@ function Browse() {
         if (searchTerm.trim() !== "") query.append("search", searchTerm.trim());
         if (eventMode === "previous") query.append("mode", "previous");
 
-        fetch(`http://localhost:3000/events/filter?${query.toString()}`)
+        fetch(`${API_URL}/events/filter?${query.toString()}`)
             .then(response => response.json())
             .then(data => {
                 setEvents(data);

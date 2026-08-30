@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import './Admin_User.css';
 import AdminNavbar from '../Components/AdminNavbar';
 import ConfirmationModal from '../Components/ConfirmationModal';
+import API_URL from '../config';
+
 
 function Admin_User() {
     const [users, setUsers] = useState([]);
@@ -11,7 +13,7 @@ function Admin_User() {
     const [confirmUser, setConfirmUser] = useState(null); // { id, action } | null
 
     useEffect(() => {
-        fetch('http://localhost:3000/admin/users')
+        fetch(`${API_URL}/admin/users`)
             .then(res => res.json())
             .then(data => setUsers(data))
             .catch(err => console.error('Error fetching users:', err));
@@ -24,7 +26,7 @@ function Admin_User() {
         }
         if (!userEvents[user_id]) {
             try {
-                const res = await fetch(`http://localhost:3000/admin/user-events?user_id=${user_id}`);
+                const res = await fetch(`${API_URL}/admin/user-events?user_id=${user_id}`);
                 const data = await res.json();
                 setUserEvents(prev => ({ ...prev, [user_id]: data }));
             } catch (err) {
@@ -37,7 +39,7 @@ function Admin_User() {
     const toggleUserStatus = async (user_id, currentStatus) => {
         try {
             const newStatus = currentStatus === 1 ? 0 : 1;
-            const res = await fetch(`http://localhost:3000/admin/user-status`, {
+            const res = await fetch(`${API_URL}/admin/user-status`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ user_id, status: newStatus })

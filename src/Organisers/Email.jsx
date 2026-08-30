@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 import './Email.css';
 
+import API_URL from '../config';
+
+
+
 function formatDate(dateStr) {
   const date = new Date(dateStr);
   if (isNaN(date.getTime())) return "Invalid Date";
@@ -116,7 +120,7 @@ function Email() {
     useEffect(() => {
         const fetchEvents = async () => {
             try {
-                const res = await fetch(`http://localhost:3000/organiser/${organiserId}/events`);
+                const res = await fetch(`${API_URL}/organiser/${organiserId}/events`);
                 const contentType = res.headers.get("content-type");
                 if (!contentType || !contentType.includes("application/json")) {
                     throw new Error("Invalid JSON response");
@@ -140,7 +144,7 @@ function Email() {
 
     const fetchEventDetails = async (eventId) => {
         try {
-            const res = await fetch(`http://localhost:3000/events/${eventId}`);
+            const res = await fetch(`${API_URL}/events/${eventId}`);
             const data = await res.json();
             setEventDetails(data);
         } catch (error) {
@@ -174,11 +178,12 @@ function Email() {
         setSending(true);
         setStatus('Sending...');
         try {
-            const res = await fetch('http://localhost:3000/send-email', {
+            const res = await fetch(`${API_URL}/send-email`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ eventId: selectedEvent, subject, body })
             });
+
             const data = await res.json();
             if (res.ok) {
                 setStatus('✅ Email sent successfully!');

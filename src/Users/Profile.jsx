@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ConfirmationModal from "../components/ConfirmationModal";
 import "./Profile.css";
+import API_URL from "../config";
+
 
 function Profile() {
     const navigate = useNavigate();
@@ -13,7 +15,7 @@ function Profile() {
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const res = await fetch(`http://localhost:3000/profile/${userRole}/${userId}`);
+                const res = await fetch(`${API_URL}/profile/${userRole}/${userId}`)
                 const data = await res.json();
                 setProfile(data);
             } catch (err) {

@@ -2,13 +2,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../Components/Footer';
 import { useEffect, useState } from 'react';
 import './GuestHome.css';
+import API_URL from "../config";
+
 
 function Guesthome() {
     const [events, setEvents] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch("http://localhost:3000/events/recent")
+        fetch(`${API_URL}/events/recent`)
             .then((res) => res.json())
             .then((data) => setEvents(data))
             .catch((err) => console.error("Error fetching events:", err));

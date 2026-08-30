@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Organizers.css';
+import API_URL from "../config";
+
 
 function Organizers() {
     const [organizers, setOrganizers] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('http://localhost:3000/api/organizers')
+        fetch(`${API_URL}/api/organizers`)
             .then(res => {
                 if (!res.ok) throw new Error(`Status ${res.status}`);
                 return res.json();

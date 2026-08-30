@@ -1,6 +1,8 @@
 import './Navbar.css'
 import { Outlet, Link } from "react-router-dom";
 import { useEffect, useState } from 'react';
+import API_URL from '../config';
+
 
 function GuestNavbar() {
     const [unreadCount, setUnreadCount] = useState(0);
@@ -15,7 +17,7 @@ function GuestNavbar() {
         const fetchUnread = async () => {
             try {
                 console.log("Fetching unread count...");
-                const res = await fetch(`http://localhost:3000/chat/unread-count?user_id=${userId}&role=${role}`);
+                const res = await fetch(`${API_URL}/chat/unread-count?user_id=${userId}&role=${role}`);
                 const data = await res.json();
                 console.log("Unread from backend:", data.unread);
                 setUnreadCount(data.unread || 0);

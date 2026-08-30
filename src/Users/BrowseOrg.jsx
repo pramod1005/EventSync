@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import './BrowseOrg.css';
+import API_URL from "../config";
+
 
 function BrowseOrg() {
     const { org_id } = useParams();
@@ -10,7 +12,7 @@ function BrowseOrg() {
     const [previous, setPrevious] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/api/organiser/${org_id}`)
+        fetch(`${API_URL}/api/organiser/${org_id}`)
             .then(res => {
                 if (!res.ok) throw new Error(`status ${res.status}`);
                 return res.json();

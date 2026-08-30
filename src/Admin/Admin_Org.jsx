@@ -2,6 +2,8 @@ import './Admin_Org.css'
 import { useEffect, useState } from 'react'
 import AdminNavbar from '../Components/AdminNavbar'
 import ConfirmationModal from '../Components/ConfirmationModal'
+import API_URL from '../config'
+
 
 function Admin_Org() {
     const [orgs, setOrgs] = useState([])
@@ -11,7 +13,7 @@ function Admin_Org() {
     const [confirmOrg, setConfirmOrg] = useState(null); // { id, action } | null
 
     useEffect(() => {
-        fetch('http://localhost:3000/admin/organizers')
+        fetch(`${API_URL}/admin/organizers`)
             .then(res => {
                 if (!res.ok) throw new Error('failed to fetch organizers')
                 return res.json()
@@ -40,7 +42,7 @@ function Admin_Org() {
 
         if (!orgEvents[orgId]) {
             try {
-                const res = await fetch(`http://localhost:3000/admin/organizer-events/${orgId}`)
+                const res = await fetch(`${API_URL}/admin/organizer-events/${orgId}`)
                 if (!res.ok) throw new Error('failed to fetch events')
                 const data = await res.json()
                 setOrgEvents(prev => ({ ...prev, [orgId]: data }))
@@ -61,7 +63,7 @@ function Admin_Org() {
     const toggleOrgStatus = async (orgId, currentStatus) => {
         try {
             const newStatus = currentStatus === 1 ? 0 : 1;
-            const res = await fetch(`http://localhost:3000/admin/organizer-status`, {
+            const res = await fetch(`${API_URL}/admin/organizer-status`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ organiser_id: orgId, status: newStatus })

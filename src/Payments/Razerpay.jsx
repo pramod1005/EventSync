@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import './Razerpay.css';
+import API_URL from '../config';
+
 
 function Razerpay() {
     const location = useLocation();
@@ -24,7 +26,7 @@ function Razerpay() {
             if (!userId) return;
 
             try {
-                const res = await fetch(`http://localhost:3000/attendee/${userId}`);
+                const res = await fetch(`${API_URL}/attendee/${userId}`);
                 const data = await res.json();
                 setFormData((prev) => ({
                     ...prev,
@@ -52,7 +54,7 @@ function Razerpay() {
 
     if (amount === 0) {
         try {
-            await fetch("http://localhost:3000/register", {
+            await fetch(`${API_URL}/register`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -78,7 +80,7 @@ function Razerpay() {
     }
 
     try {
-        const res = await fetch("http://localhost:3000/create-order", {
+        const res = await fetch(`${API_URL}/create-order`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ amount }) // Amount in paise
@@ -109,7 +111,7 @@ function Razerpay() {
             handler: async (response) => {
                 alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
             
-                await fetch("http://localhost:3000/register", {
+                await fetch(`${API_URL}/register`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

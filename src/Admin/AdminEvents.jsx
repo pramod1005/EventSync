@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import '../Users/Regevent.css';
 import ConfirmationModal from "../Components/ConfirmationModal";
+import API_URL from '../config';
+
 
 function AdminEvents() {
     const { eventId } = useParams();
@@ -15,7 +17,7 @@ function AdminEvents() {
     const navigate = useNavigate();
 
     const fetchEvent = () => {
-        fetch(`http://localhost:3000/events/${eventId}`)
+        fetch(`${API_URL}/events/${eventId}`)
             .then(response => response.json())
             .then(data => {
                 setEvent(data);
@@ -26,7 +28,7 @@ function AdminEvents() {
 
     const updateEventStatus = (id, status) => {
         const endpoint = status === 1 ? 'approve' : 'reject';
-        fetch(`http://localhost:3000/events/${id}/${endpoint}`, {
+        fetch(`${API_URL}/events/${id}/${endpoint}`, {
             method: 'PUT',
         })
             .then(res => res.json())
@@ -41,7 +43,7 @@ function AdminEvents() {
 
     const fetchRegs = async (event_id) => {
         try {
-            const res = await fetch(`http://localhost:3000/organizer/registrations/${event_id}`);
+            const res = await fetch(`${API_URL}/organizer/registrations/${event_id}`);
             if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
             const data = await res.json();
             setRegData(data);

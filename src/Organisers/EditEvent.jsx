@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import "./Host.css"
+import API_URL from "../config"
+
 
 function EditEvent() {
     const { id } = useParams()
@@ -29,7 +31,7 @@ function EditEvent() {
     const formatDate = (d) => d ? new Date(d).toISOString().split("T")[0] : ""
 
     useEffect(() => {
-        fetch(`http://localhost:3000/organizer/editevent/${id}`)
+        fetch(`${API_URL}/organizer/editevent/${id}`)
             .then(res => res.json())
             .then(data => {
                 setEventId(data.event_id)
@@ -108,7 +110,7 @@ function EditEvent() {
 
     const handleSubmitStep = async (e) => {
         e.preventDefault()
-        const url = "http://localhost:3000/events/update"
+        const url = `${API_URL}/events/update`
         const body = { event_id: eventId, ...formData }
 
         const res = await fetch(url, {
@@ -129,7 +131,7 @@ function EditEvent() {
         if (coverImage) imageData.append("cover_image", coverImage)
         selectedImages.forEach(i => imageData.append("images", i.file))
 
-        const res = await fetch("http://localhost:3000/events/upload-pics", {
+        fetch(`${API_URL}/events/upload-pics`, {
             method: "POST",
             body: imageData
         })
@@ -141,7 +143,7 @@ function EditEvent() {
 
     const handleSubmitCustomFields = async (e) => {
         e.preventDefault()
-        const res = await fetch("http://localhost:3000/events/custom-fields", {
+        fetch(`${API_URL}/events/custom-fields`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ event_id: eventId, fields: customFields })
@@ -213,7 +215,7 @@ function EditEvent() {
                     <div className="image-previews">
                         {existingImages.map((src, i) => (
                             <div key={i} className="image-preview">
-                                <img src={`http://localhost:5173/${src}`} alt={`existing-${i}`} />
+                                <img src={`${API_URL}/${src}`} alt={`existing-${i}`} />
                             </div>
                         ))}
                     </div>
@@ -223,8 +225,8 @@ function EditEvent() {
                     <div className="image-previews">
                         {selectedImages.map((img, i) => (
                             <div key={i} className="image-preview">
-                                <img src={`http://localhost:5173/${src}`} alt={`existing-${i}`} />
-                                <button onClick={() => handleRemoveImage(i)}>✖</button>
+                                <img src={img.preview} alt={`selected-${i}`} />
+                                <button type="button" onClick={() => handleRemoveImage(i)}>✖</button>
                             </div>
                         ))}
                     </div>

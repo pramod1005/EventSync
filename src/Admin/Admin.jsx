@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './Admin.css';
 import AdminNavbar from '../Components/AdminNavbar';
 import { useNavigate } from 'react-router-dom';
+import API_URL from '../config';
+
 
 
 
@@ -15,7 +17,7 @@ function Admin() {
     }, []);
 
     const fetchEvents = () => {
-        fetch('http://localhost:3000/admin/events')
+        fetch(`${API_URL}/admin/events`)
             .then(res => res.json())
             .then(data => {
                 setPendingEvents(data.pending);
@@ -26,7 +28,7 @@ function Admin() {
 
     const updateEventStatus = (id, status) => {
         const endpoint = status === 1 ? 'approve' : 'reject';
-        fetch(`http://localhost:3000/events/${id}/${endpoint}`, {
+        fetch(`${API_URL}/events/${id}/${endpoint}`, {
             method: 'PUT',
         })
             .then(res => res.json())

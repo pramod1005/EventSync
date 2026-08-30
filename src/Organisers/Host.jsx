@@ -2,6 +2,10 @@ import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import "./Host.css"
 
+
+import API_URL from '../config';
+
+
 function Host() {
 
     const [step, setStep] = useState(1)
@@ -80,7 +84,7 @@ function Host() {
             return
         }
 
-        const response = await fetch("http://localhost:3000/events/create", {
+        const response = await fetch(`${API_URL}/events/create`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -116,7 +120,7 @@ function Host() {
             return
         }
 
-        const response = await fetch("http://localhost:3000/events/update", {
+        const response = await fetch(`${API_URL}/events/update`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -151,7 +155,7 @@ function Host() {
             imageData.append("images", selectedImages[i].file)
         }
 
-        const response = await fetch("http://localhost:3000/events/upload-pics", {
+        const response = await fetch(`${API_URL}/events/upload-pics`, {
             method: "POST",
             body: imageData
         })
@@ -200,7 +204,7 @@ function Host() {
 
     const handleSubmitCustomFields = async (e) => {
         e.preventDefault()
-        const response = await fetch("http://localhost:3000/events/custom-fields", {
+        const response = await fetch(`${API_URL}/events/custom-fields`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ event_id: eventId, fields: customFields })

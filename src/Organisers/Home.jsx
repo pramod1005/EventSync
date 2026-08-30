@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ConfirmationModal from '../Components/ConfirmationModal';
 import './Home.css';
+import API_URL from '../config';
+
+
 
 function OrgHome() {
     const [ongoingEvents, setOngoingEvents] = useState([]);
@@ -30,7 +33,7 @@ function OrgHome() {
         const fetchEvents = async () => {
             const userId = localStorage.getItem('userId');
             try {
-                const res = await fetch(`http://localhost:3000/organizer/events?organizerId=${userId}`);
+                const res = await fetch(`${API_URL}/organizer/events?organizerId=${userId}`);
                 const data = await res.json();
                 setOngoingEvents(data.ongoing);
                 setPreviousEvents(data.previous);
@@ -43,7 +46,7 @@ function OrgHome() {
 
     const closeReg = async (event_id) => {
         try {
-            const res = await fetch(`http://localhost:3000/organizer/close-registration/${event_id}`, {
+            const res = await fetch(`${API_URL}/organizer/close-registration/${event_id}`,{
                 method: 'PUT',
             });
             const result = await res.json();
@@ -62,7 +65,7 @@ function OrgHome() {
 
     const cancelEvent = async (event_id) => {
         try {
-            const res = await fetch(`http://localhost:3000/organizer/delete-event/${event_id}`, {
+            const res = await fetch(`${API_URL}/organizer/delete-event/${event_id}`, {
                 method: 'DELETE',
             });
             const result = await res.json();
@@ -80,7 +83,7 @@ function OrgHome() {
     const fetchRegs = async (event_id, event_name) => {
         try {
             console.log('Fetching registrations for event:', event_id);
-            const res = await fetch(`http://localhost:3000/organizer/registrations/${event_id}`);
+            const res = await fetch(`${API_URL}/organizer/registrations/${event_id}`);
             if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
             const data = await res.json();
             setRegData(data);

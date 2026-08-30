@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import './Regevent.css';
 import ConfirmationModal from "../Components/ConfirmationModal";
+import API_URL from "../config";
+
 
 function Regevent() {
     const { eventId } = useParams();
@@ -17,7 +19,7 @@ function Regevent() {
 
     useEffect(() => {
 
-        fetch(`http://localhost:3000/events/${eventId}`)
+        fetch(`${API_URL}/events/${eventId}`)
             .then(response => response.json())
             .then(data => {
                 setEvent(data);
@@ -26,7 +28,7 @@ function Regevent() {
             .catch(error => console.error("Error fetching event:", error));
 
         // Fetch recent events
-        fetch("http://localhost:3000/events/recent")
+        fetch(`${API_URL}/events/recent`)
             .then(response => response.json())
             .then(data => {
                 setRecentEvents(data);
@@ -35,7 +37,7 @@ function Regevent() {
 
         // Check if user is already registered
         if (userId) {
-            fetch(`http://localhost:3000/registrations/check?eventId=${eventId}&userId=${userId}`)
+            fetch(`${API_URL}/registrations/check?eventId=${eventId}&userId=${userId}`)
                 .then(res => res.json())
                 .then(data => {
                     if (data.registered) {
