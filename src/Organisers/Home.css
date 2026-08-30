@@ -1,0 +1,402 @@
+  .no-events-msg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 320px;
+  }
+.no-events-msg p{
+    text-align: center;
+    font-size: large;
+}
+.host-event-btn{
+    height: 50px;
+    width: 165px;
+    border-radius: 5px;
+    border: none;
+    font-size: 15px;
+    font-weight: 400;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 4px -8px;
+    margin-top: 30px;
+    text-align: center;
+    padding: 10px 17px;
+    background-color: lightseagreen;
+    color: white;
+    transition-duration: 0.2s;
+
+}
+.head-text-card-small{
+    width: 150px;
+}
+.host-event-btn:hover{
+    transform: scale(1.2);
+    transition-duration: 0.2s;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 16px 16px -8px;
+}
+  .subhead-text-card-v2{
+    font-family: "Playfair Display", serif;
+    font-size: xx-large;
+    font-style: normal;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 17px;
+  }
+.ong-events-home{
+    width: 95.8%;
+    border-radius: 10px;
+    background-color: #E8EDDF;
+    margin: 0 auto;
+    margin-top:10px
+}
+.ongoing_events-home{
+    display: flex;
+    justify-content: left;
+    column-gap: 10px;
+    row-gap: 10px;
+    flex-wrap: wrap;
+    margin-left: 20px;
+}
+
+.ongoing_event_cards {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+    background-color: #E8EDDF;
+    width: 49%;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.22);
+    padding: 10px 0;
+    margin: 30px 0;
+}
+
+.ongoing_event_cards h1{
+    padding-left: 25px;
+    padding-bottom: 0%;
+    margin-bottom: 0;
+}
+.ongoing_event_cards #cat,#datetime,#deadline,#location{
+    padding-top: 0;
+    margin-top: 0;
+    padding-left: 25px;
+    font-size: medium;
+    padding-bottom: 10px;
+
+}
+.ongoing-btns svg{
+    position: absolute;
+    height: 30px;
+    right: 0;
+    top: 0;
+    margin: 16px;
+    stroke: grey;
+    opacity: 0.7;
+}
+.ongoing-btns svg:hover{
+    cursor: pointer;
+}
+#deadline {
+    font-weight: 600;
+}
+.circle-prog{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.circle-prog .box{
+    position: relative;
+    display: flex;
+    height: 300px;
+    width: 200px;
+    justify-content: end;
+    row-gap: 30px;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+}
+.circle-prog .box .percent{
+    height: 150px;
+    width: 150px;
+    position: relative;
+}
+.col-flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.circle-prog .box .percent svg{
+    position: relative;
+    width: 150px;
+    height: 150px;
+
+}
+.circle-prog .box .percent svg circle{
+    width: 150px;
+    height: 150px;
+    fill: none;
+    stroke-width: 10;
+    stroke: #111;
+    transform: translate(5px,5px);
+    stroke-dashoffset: 440;
+    stroke-dasharray: 440;
+    stroke-linecap: round;
+}
+.circle-prog .box .percent svg circle:nth-child(1){
+    stroke-dashoffset: 0;
+    stroke: #f3f3f3;
+}
+.circle-prog .box .percent svg circle:nth-child(2){
+    
+    stroke: lightseagreen;
+}
+.circle-prog .box .percent .number{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.circle-prog .box .percent .number h2{
+    font-size: 40px;
+}
+.circle-prog .box .percent .number h2 span{
+    font-size: 26px;
+}
+
+.ongoing-btns{
+    
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+.ongoing-btns button{
+    height: 50px;
+    width: 165px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    background-color: whitesmoke;
+    color: #111;
+    border-radius: 5px;
+    border: none;
+    font-size: 15px;
+    font-weight: 400;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 4px -8px;
+
+}
+.ongoing-btns button:nth-child(4){
+    background-color: rgb(198, 70, 70);
+    color: #cfdbd5;
+}
+.ongoing-btns button:hover {
+    background-color: lightseagreen;
+    color: white;
+    transition-duration: 0.2s;
+}
+.ongoing-btns button:nth-child(4):hover{
+    background-color: rgb(198, 70, 70);
+    color: #cfdbd5;
+}
+.previous-events{
+    display: flex;
+    justify-content: left;
+    column-gap: 10px;
+    row-gap: 10px;
+    flex-wrap: wrap;
+    margin-left: 2.5%;
+}
+
+.previous_event_cards {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+    background-color: #E8EDDF;
+    width: 19%;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.22);
+    margin: 10px 0;
+}
+
+.previous_event_cards h1{
+    padding-left: 25px;
+    padding-bottom: 0%;
+    margin-bottom: -20px;
+}
+.previous_event_cards #cat,#datetime,#deadline,#location{
+    padding-top: 0;
+    margin-top: 20px;
+    padding-left: 25px;
+    font-size: medium;
+    padding-bottom: 10px;
+
+}
+.previous_event_cards button{
+    height: 50px;
+    width: 165px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    background-color: whitesmoke;
+    color: #111;
+    border-radius: 5px;
+    border: none;
+    font-size: 15px;
+    font-weight: 400;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 4px -8px;
+}
+.previous_event_cards button:hover {
+    background-color: lightseagreen;
+
+    transition-duration: 0.2s;
+}
+.vertical-progress{
+    position: relative;
+    margin-left: -20px;
+    height: 90%;
+    bottom: -12px;
+}
+.vertical-bar{
+    height: 100%;
+    background-color: white;
+    width: 10px;
+    position: absolute;
+    bottom: 0px;
+    z-index: 0;
+    right: 20px;
+
+}
+.vertical-bar-prog{
+    background-color: lightseagreen;
+    width: 10px;
+    position: absolute;
+    bottom: 0px;
+    z-index: 10;
+    right: 20px;
+}
+.vertical-progress p{
+    
+    rotate: -90deg;
+    width: max-content;
+    position: absolute;
+    bottom: 95px;
+    right: -10px;
+}
+
+/* --- Responsive improvements for Organiser Home Page --- */
+
+@media (max-width: 900px) {
+  .ongoing_events-home, .previous-events {
+    flex-direction: column;
+    gap: 16px;
+    margin: 24px 0 0 0;
+  }
+  .ongoing_event_cards, .previous_event_cards {
+    width: 100%;
+    min-width: unset;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px 8px;
+  }
+  .circle-prog .box {
+    width: 100%;
+    height: auto;
+    padding-bottom: 10px;
+  }
+  .ongoing-btns, .ongoing-btns button, .previous_event_cards button {
+    width: 100%;
+    margin: 8px 0 0 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-head {
+    min-height: 180px;
+    padding: 16px 0;
+    border-radius: 0 0 12px 12px;
+  }
+  .home-heading {
+    font-size: 2rem;
+    padding-top: 40px;
+  }
+  .subhead-text-card, .subhead-text-card-v2 {
+    font-size: 1.1rem;
+    padding-left: 10px;
+    padding-top: 16px;
+    padding-bottom: 10px;
+  }
+  .ongoing_event_cards, .previous_event_cards {
+    padding: 10px 2px;
+    border-radius: 8px;
+  }
+  .circle-prog .box .percent {
+    width: 100px;
+    height: 100px;
+  }
+  .circle-prog .box .percent svg {
+    width: 100px;
+    height: 100px;
+  }
+  .circle-prog .box .percent .number h2 {
+    font-size: 24px;
+  }
+  .ongoing-btns button, .previous_event_cards button {
+    font-size: 0.95rem;
+    padding: 8px 0;
+    width: 100%;
+    margin: 6px 0 0 0;
+  }
+  .vertical-progress {
+    margin-left: 0;
+    min-width: 60px;
+  }
+}
+.reg-table-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: #E8EDDF;
+    z-index: 9999;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.reg-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.reg-header h3 {
+    margin: 0;
+}
+
+.reg-header button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.reg-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.reg-table th,
+.reg-table td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: left;
+}
+
+.reg-table th {
+    background-color: #f4f4f4;
+}
+/* --- End responsive improvements --- */

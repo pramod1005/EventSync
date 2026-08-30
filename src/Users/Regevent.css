@@ -1,0 +1,254 @@
+.carousel-container {
+    display: flex;
+    padding-top: 15px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+}
+
+.slider {
+    width: 800px;
+}
+
+.testimonial-slide {
+    margin: 0px auto;
+    height: 450px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    overflow: hidden;
+    background: #f5f5f5;
+}
+
+.testimonial-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.testimonial-inner {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.thumbnail-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    margin-left: 5px;
+}
+
+.thumbnail {
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.thumbnail:hover {
+    transform: scale(1.05);
+}
+
+.thumbnail img {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid transparent;
+}
+
+.thumbnail.active img {
+    border: 4px solid lightseagreen;
+}
+
+.event {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.event_name {
+    margin-top: 20px;
+    font-size: 50px;
+    font-family: "Roboto Slab", serif;
+    font-optical-sizing: auto;
+    margin-bottom: -6px;
+}
+
+.event .event_info .event_details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.event_reg {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Register {
+    padding-top: 1.2%;
+    padding-bottom: 1.2%;
+    padding-right: 3%;
+    padding-left: 3%;
+    border: none;
+    margin-top: -27px;
+    margin-bottom: 5px;
+    background-color: lightseagreen;
+    border-radius: 5px;
+    transition-duration: 0.2s;
+    font-size: 16px;
+    width: 160px;
+}
+
+.Register:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 10px -8px;
+    cursor: pointer;
+}
+
+.event_info2 {
+    display: flex;
+    align-items: flex-start;
+}
+
+.artists {
+    background-color: #e8eddf;
+    width: 20%;
+    margin-bottom: 70px;
+}
+.ApproveBtn, .RejectBtn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.ApproveBtn {
+    background-color: lightseagreen;
+    color: white;
+    margin-right: 5px;
+}
+.RejectBtn {
+    background-color: #e74c3c;
+    color: white;
+}
+.event_motto {
+    background-color: #e8eddf;
+    min-height: 700px;
+    height: auto;
+    width: 80%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.uc_event {
+    background-color: #e8eddf;
+    min-height: 700px;
+    height: auto;
+    width: 20%;
+    margin-bottom: 70px;
+}
+
+.event1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.artist_photo {
+    
+    border-radius: 100%;
+    display: flex;
+    height: 60%;
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 6%;
+}
+
+.artist_name {
+    text-align: center;
+
+}
+
+.uc_event * {
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+.Artist_header {
+    text-align: center;
+}
+
+.motto_bp {
+    padding: 4%;
+}
+
+.motto_header {
+    margin-top: 20px;
+    font-size: 30px;
+    text-align: center;
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+}
+
+.uc_event_header {
+    margin-top: 11px;
+    text-align: center;
+    
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+}
+
+.event_photo {
+    object-fit: cover;
+    height: 150px;
+    width: 150px;
+    margin: 23px auto;
+    margin-bottom: 5px;
+}
+
+.event_info {
+    margin-bottom: 20px;
+}
+
+.location_symbol {
+    position: relative;
+    top: 5px;
+}
+
+.event_location p {
+    display: inline-flex;
+    margin: 0;
+}
+
+.motto_info p {
+    margin: 5%;
+}
+#support{
+    padding-top: 5%;
+    padding-bottom: 1.2%;
+    padding-right: 4%;
+    padding-left: 4%;
+    border: none;
+    margin-top: -30px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    background-color: rgb(235, 232, 232);
+    border-radius: 5px;
+    transition-duration: 0.2s;
+    font-size: 16px;
+    width: 50px;
+}#support:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 10px -8px;
+    cursor: pointer;
+}
+.reg-btns{
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+    justify-content: end;
+}

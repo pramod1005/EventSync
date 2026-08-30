@@ -1,0 +1,154 @@
+.signininfo {
+
+
+    margin: auto;
+    margin-top: 50px;
+    height: 360px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #1abc9c, #16a085);
+    width: 100%;
+    text-align: center;
+    
+
+}
+
+.signininfo p {
+    font-size: large;
+    color: white;
+    width: 80%;
+    margin: auto;
+    padding-top: 10px;
+    font-weight: 300;
+    line-height:30px; 
+}
+
+.signinh2 {
+    padding-top: 100px;
+    color: white;
+    font-size: 50px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
+.head-text {
+    font-family: "Roboto Slab", serif;
+    font-optical-sizing: auto;
+
+    font-style: normal;
+}
+
+
+.usersignin {
+
+    width: 85%;
+
+    height: 45vh;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    margin-bottom: 5%;
+
+}
+
+.attendees {
+    width: 45%;
+    padding: 0.4%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+.attendees ul li {
+    text-align: justify;
+}
+
+.organizers ul li {
+    text-align: justify;
+}
+
+.organizers ul li h4 {
+    font-size: 18px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    margin-top: 8px;
+    font-weight: 600;
+    font-family: "Playfair Display", serif;
+
+}
+
+.attendees ul li h4 {
+    font-size: 18px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    margin-top: 8px;
+    font-weight: 600;
+    font-family: "Playfair Display", serif;
+}
+
+.attendees h3 {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 0;
+    font-family: "Playfair Display", serif;
+}
+
+.organizers {
+
+    width: 45%;
+    padding: 0.4%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.organizers h3 {
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 0;
+    font-family: "Playfair Display", serif;
+}
+
+.usersignh3 {
+    margin-top: 0;
+    padding-bottom: 16px;
+}
+
+.organizers button {
+    margin-top: 20px;
+}
+
+.signinbut {
+    color: #E8EDDF;
+    background: linear-gradient(135deg, #1abc9c, #16a085);
+    border: 1px solid #CFDBD5;
+    border-radius: 6px;
+    height: 45px;
+    font-size: 14px;
+    padding: 5px 17px;
+}
+
+.signinbut:hover {
+    transform: scale(1.03);
+    transition-duration: .3s;
+
+}
+.usersigninput{
+    background-color: #E8EDDF ;
+    text-align: center;
+    color: black;
+    border-radius:4px;
+    border: 1px solid black;
+   
+}
+.attendees button {
+    margin-top: 20px;
+}
+.organizers .usersigninput{
+    margin-top:20px;
+}

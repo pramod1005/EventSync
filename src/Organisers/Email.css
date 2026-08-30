@@ -1,0 +1,144 @@
+
+.email-container{
+    width: 100%;
+    margin-top: 90px ;
+}
+.email-input {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    width: 100%;
+    justify-content: center;
+
+}
+.to-container{
+    color: #979696;
+}
+.email-text {
+    width: 68%;
+    background-color: #e8eddf;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    
+}
+.email-text .form-group select, input, textarea {
+    width: 95%;
+    padding: 10px;
+    margin-top: 10px;
+    align-self: center;
+    margin-left: 2.5%;
+    background-color: white;
+    color: #333;
+    border: 0.5px solid #ccc;
+}
+
+.email-text .send-button {
+    width: 150px;
+    padding: 10px;
+    margin-top: 5px;
+    margin-right: 2.5%;
+    background-color: lightseagreen;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.email-templates {
+    width: 27%;
+    background-color: #e8eddf;
+    border-radius: 10px;
+}
+.template-buttons {
+    display: flex;
+    flex-direction: column;
+    
+}
+.template-buttons button {
+    background-color:  #e8eddf;
+    color: #333;
+    border: 0.25px solid #ccc;
+    height: 95px;
+    cursor: pointer;
+}
+
+.template-buttons button:nth-child(5) {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 32px 24px 24px 24px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    min-width: 320px;
+    max-width: 90vw;
+    text-align: center;
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #333;
+}
+.modal-content p {
+    margin-bottom: 18px;
+    color: #444;
+}
+.modal-confirm {
+    background-color: lightseagreen;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 20px;
+    cursor: pointer;
+    font-weight: 500;
+}
+.modal-cancel {
+    background-color: #eee;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 20px;
+    cursor: pointer;
+    font-weight: 500;
+}
+.modal-confirm:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+.email-popup {
+    position: fixed;
+    top: 150px;
+    right: 20px;
+    background-color: #4caf50;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+    animation: fadeInOut 4s ease-in-out forwards;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(-10px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-10px); }
+}

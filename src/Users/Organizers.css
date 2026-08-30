@@ -1,0 +1,61 @@
+
+.Org{
+ display: flex;
+    flex-direction:row;
+    justify-content: left;
+    flex-wrap: wrap;
+
+}
+
+.Org .Event {
+    margin: 10px;
+    text-align: center;
+    height: 300px;
+    width: 300px;
+    margin: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 10px 20px -1px, rgba(0, 0, 0, 0.3) 0px 8px 10px -8px;
+    border-radius: 18px;
+    background-color: #e8eddf;
+    padding-bottom: 15px;
+    transition-duration: 0.2s;
+}
+
+.Org .Event:hover {
+    scale: 1.05;
+    transition-duration: 0.5s;
+}
+.discover-orgs{
+    width: 95.8%;
+    border-radius: 10px;
+    background-color: #E8EDDF;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.Org .Event img{
+    height:250px;
+    width:300px;
+    object-fit: cover;
+    border-top-right-radius: 9%;
+    border-top-left-radius: 9%;
+}
+
+.Orgheadbrowsetext {
+    font-family: "Roboto Slab", serif;
+    font-optical-sizing: auto;
+    margin-left: 17%;
+    font-style: normal;
+}
+
+.Orgheadbrowse p {
+    color: white;
+    padding-left: 20px;
+    font-size: large;
+}
+
+.Orgheadbrowse {
+
+    height: 480px;
+    background-color: lightseagreen;
+    width: 100%;
+}

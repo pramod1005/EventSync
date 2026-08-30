@@ -1,0 +1,233 @@
+.Organizers_profile{
+    display: flex;
+    column-gap: 10px;
+    justify-content: center;
+margin-top: 100px;
+margin-bottom: 15px;
+
+}
+.Orgprofilelogout{
+    background-color: lightseagreen;
+    border: none;
+    text-align: center;
+    margin-left: 36%;
+    margin-top: 10%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.Orgprofilelogout:hover{
+    cursor: pointer;
+    scale: 1.05;
+    background-color:rgb(19, 102, 98);
+    transition-duration: 0.2s;
+
+}
+.Organizers_profile .OrgProfile_boxM1{
+    width:20%;
+background-color:   #E8EDDF ;
+border-radius: 10px;
+}
+.Profile_boxM1 .Orgprofile_logo{
+    background-color: #E8EDDF;
+    margin-top: 100px;
+    border-radius: 8px;
+}
+.OrgProfile_boxM1 .Orgprofile_logo img{
+    margin: 5px;
+    margin-top: 20px;
+    margin-left: 55px;
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+    border: lightseagreen solid 2px;
+}
+.OrgProfile_boxM1 .Orgprofile_logo .Orgname{
+    text-align: center;
+    font-family:'Merriweather',serif;
+    font-size: 20px;
+    margin-top: 30px;
+}
+.OrgProfile_boxM1 .Orgprofile_logo input{
+    margin-left: 20%;
+}
+.Role{
+    text-align: center;
+    font-family:'Merriweather',serif;
+    font-size: larger;
+    color: rgb(168, 167, 167);
+    margin-top: 10px;
+}
+.Organizers_profile .OrgProfile_boxM2 .Profile_box_1{
+    width:1000px;
+    height:fit-content;
+    background-color: #E8EDDF;
+    border-radius: 8px;
+    padding: 2px;
+}
+.OrgProfile_boxM2 .Profile_box_1 .profile_box1_name{
+    font-size: larger;
+    font-family:'Merriweather',serif;
+    height: auto;
+    margin-top:15px;
+    margin-left:10px;
+    padding: 5px;
+}
+.OrgProfile_boxM2 .Profile_box_1 .profile_box1_name span{
+    font-weight: 600;
+
+}
+.OrgProfile_boxM2{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.OrgProfile_boxM2 .Profile_box_2{
+    width:1000px;
+    height: fit-content;
+    min-height:140px;
+    background-color: #E8EDDF;
+    border-radius: 8px;
+    padding: 10px;
+}
+.OrgProfile_boxM2 .Profile_box_2 p{
+    padding: 10px;
+    font-size: larger;
+    font-family:'Merriweather',serif;
+    font-weight: 600;
+}
+.Profile_box_2 .Ongoing_Organised_events{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 15px;
+    padding: 5px;
+}
+.Profile_box_2 .Ongoing_event1{
+    background-color:whitesmoke;
+    padding: 5px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 5px;
+}
+.Profile_box_2 .Ongoing_event1:hover{
+    transform: scale(1.05);
+    transition-duration: 0.2s;
+    cursor: pointer;
+}
+.OrgProfile_boxM2 .Profile_box_3{
+    width:1000px;
+    height: fit-content;
+    min-height:140px;
+    background-color: #E8EDDF;;
+    border-radius: 8px;
+    padding: 10px;
+}
+.OrgProfile_boxM2 .Profile_box_3 p{
+    padding: 10px;
+    font-size: larger;
+    font-family:'Merriweather',serif;
+    font-weight: 600;
+}
+.Profile_box_3 .Prev_Organised_events{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 15px;
+    padding: 5px;
+}
+.Profile_box_3 .Pre_event1{
+    background-color:whitesmoke;
+    padding: 5px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 5px;
+}
+.Profile_box_3 .Pre_event1:hover{
+    transform: scale(1.05);
+    transition-duration: 0.2s;
+    cursor: pointer;
+}
+
+.profile_edit_btn{
+    background-color: lightseagreen;
+    border: none;
+    text-align: center;
+    padding: 5px 15px;
+    margin-left: 94%;
+    border-radius: 4px;
+}
+.profile_edit_btn:hover{
+    background-color:rgb(19, 102, 98);
+    cursor: pointer;
+    scale: 1.05;
+    transition-duration: 0.2s;
+}
+.profile_change_img_btn{
+    background-color:white;
+    color: black;
+    border: none;
+    text-align: center;
+    padding: 5px 15px;
+    margin-left: 28%;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+.profile_change_img_btn:hover{
+    cursor: pointer;
+}
+.Edit_Profile_Box{
+    width: 500px;
+}
+
+.modal-backdropOrg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.modal-contentOrg {
+    background: white;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    width: 500px;
+    text-align: center;
+}
+
+.modal-buttonsOrg {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.cancel-btnOrg {
+    background: lightseagreen;
+    border: none;
+    width: 40%;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+.confirm-btnOrg {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    width: 40%;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+.Edit_Profile_Box input{
+    background-color: white;
+     
+}
+

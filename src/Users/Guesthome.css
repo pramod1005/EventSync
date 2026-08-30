@@ -1,0 +1,61 @@
+.guesthome-head{
+    background:linear-gradient(135deg, #1abc9c, #16a085) ;
+    margin-top: 80px;
+    height: 360px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 10px;
+}
+.discover-ghome {
+    width: 95%;
+    border-radius: 10px;
+    margin: 30px 2.5%;
+    background-color: #E8EDDF;
+    min-height: 750px;
+    
+}
+.guesthome-heading {
+    color: white;
+    font-size: 50px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
+.guesthead-text {
+    font-family: "Roboto Slab", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.guesthome-heading p {
+    font-size: large;
+    color: white;
+    width: 60%;
+    margin: auto;
+    font-weight: 300;
+    line-height:30px; 
+}
+.guestsignin {
+    background-color: #E8EDDF;
+    width: 220px;
+    height: 50px;
+    margin-top: 10px;
+    border: 0;
+    color: #333533;
+    border-radius: 6px;
+    font-size: medium;
+    justify-self: end;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 10px -8px;
+    transition-duration: 0.2s;
+
+}
+.guestsignin:hover {
+    transform: scale(1.039);
+    transition-duration: 0.2s;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+}

@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+
+.body1 {
+    /* margin-top: 20px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 15px;
+    background: linear-gradient(135deg, #1abc9c, #16a085);
+}
+
+.loginsignin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 15px;
+}
+
+.loginsignininfo {
+    width: 55%;
+    text-align: center;
+    color: white;
+    padding: 40px;
+
+}
+
+.loginsigninh2 {
+    font-size: 50px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.loginsignininfo p {
+    font-size: 18px;
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+.loginsignininput {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.loginsignin .wrapper {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    /* margin-top: 160px; */
+}
+
+.loginsignin .wrapper .row {
+    display: flex;
+    align-items: center;
+    background: #f5f5f5;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease-in-out;
+}
+
+.loginsignin .wrapper .row:focus-within {
+    border-color: #1abc9c;
+    background: white;
+}
+
+.loginsignin .wrapper .row i {
+    margin-right: 10px;
+    color: #1abc9c;
+    font-size: 18px;
+}
+
+.loginsignin .wrapper input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: transparent;
+    color: #333;
+    padding: 5px;
+}
+
+.loginsignin .wrapper input::placeholder {
+    color: #999;
+}
+
+.loginsignin .wrapper .pass {
+    text-align: right;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.loginsignin .wrapper .pass a {
+    text-decoration: none;
+    color: #1abc9c;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.loginsignin .wrapper .pass a:hover {
+    color: #16a085;
+}
+
+.loginsignin .wrapper .button input {
+    width: 100%;
+    background: #1abc9c;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.loginsignin .wrapper .button input:hover {
+    background: #16a085;
+    transform: scale(1.02);
+}
+
+.loginsignin .wrapper .signin-link {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.loginsignin .wrapper .signin-link a {
+    color: #1abc9c;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.loginsignin .wrapper .signin-link a:hover {
+    color: #16a085;
+}
+
+@media (max-width: 1024px) {
+    .loginsignin {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .loginsignininfo {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .loginsignininput {
+        width: 90%;
+    }
+}

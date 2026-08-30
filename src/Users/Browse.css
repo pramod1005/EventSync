@@ -1,0 +1,384 @@
+#searchh2 {
+    text-align: center;
+    font-weight: 100;
+    padding-top: 20px;
+}
+
+.searchbox {
+    width: 85%;
+    height: 40px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    background-color: rgba(232, 237, 223, 0.5);
+    border: 0;
+    border-radius: 5px;
+    color: black;
+    text-align: center;
+    transition-duration: 0.3s;
+
+}
+
+.searchbox:focus {
+    outline: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -4px;
+    transition-duration: 0.3s;
+
+}
+
+.date-filter {
+    width: 80%;
+}
+
+.date-filter button {
+    border: 0.5px solid gray;
+    font-size: small;
+    background-color: white;
+    padding: 5px 12px;
+    border-radius: 4px;
+    color: grey;
+    margin-left: 6px;
+    margin-bottom: 10px;
+}
+
+.date-filter button:hover {
+    background-color: lightseagreen;
+    color: white;
+    transition-duration: 0.5s;
+    scale: 1.05;
+    cursor: pointer;
+}
+
+.filter-sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+.filter-sidebar {
+    position: fixed;
+    top: 83px;
+    bottom: 50%;
+    left: -320px;
+    /* Hide sidebar by default */
+    width: 320px;
+    height: 90%;
+    background: #E8EDDF;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+}
+
+.filter-sidebar.visible {
+    left: 0;
+    /* Slide in */
+}
+
+.filter-toggle-btn {
+    margin-top: 20px;
+    
+    padding: 10px 28px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition-delay: 1s;
+    background-color: lightseagreen;
+}
+
+.filter-hide-btn {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    background: lightseagreen;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    z-index: 1010;
+}
+
+.filters {
+    width: 100%;
+    padding: 15px;
+    padding-top: 20px;
+}
+
+.filters h4 {
+    margin-bottom: 3px;
+    margin-top: 12px;
+    margin-left: 12px;
+}
+
+.each-category input {
+    margin-left: 15px;
+    display: none;
+}
+
+.categories {
+    /* display: flex;
+    flex-wrap: wrap; */
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2px;
+    padding: 5px;
+}
+
+.each-category {
+    border: 1px solid grey;
+    width: 40%;
+    padding: 5px 12px;
+    align-items: center;
+
+}
+
+.each-category :hover {
+    background-color: lightseagreen;
+    color: white;
+    transition-duration: 0.5s;
+    scale: 1.05;
+    cursor: pointer;
+}
+
+.each-category label {
+    font-size: small;
+    padding: 5px 12px;
+    margin: -5px -12px;
+    transition-duration: 0.2s;
+}
+
+.check:checked+label {
+    background-color: lightseagreen;
+    border-color: lightseagreen;
+    color: white;
+    transition-duration: 0.2s;
+
+}
+
+.browse {
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+}
+
+.browse-list {
+    width: 100%;
+    
+    margin-top: 30px;
+    background-color: #CFDBD5;
+    
+
+}
+.browse-list-head{
+    width: 75%;
+    margin: auto;
+}
+
+.browseitem {
+    display: flex;
+    /* margin-bottom: 20px; */
+    height: 27vh;
+    margin-top: 18px;
+    
+    border-radius: 8px;
+    margin-bottom: 18px;
+    background-color: #E8EDDF;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 10px -4px;
+    transition-duration: 0.2s;
+
+}
+
+.browseitem:hover {
+    transform: scale(1.02);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -4px;
+    transition-duration: 0.6s;
+    transition-delay: 0.5s;
+}
+
+.browsingimg {
+    object-fit: cover;
+    height: 100%;
+    width: 26%;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+
+}
+
+.browsingtext {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overflow-x: hidden;
+}
+
+.browsingtext::-webkit-scrollbar {
+    display: none;
+}
+
+.browsingtext {
+    width: 73%;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    justify-self: center;
+    overflow: auto;
+    padding-right: 20px;
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.browsingtext title {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.browsingtext p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.browsingtext::-webkit-scrollbar {
+    width: 12px;
+    display: none;
+
+}
+
+.browsingtext::-webkit-scrollbar-track {
+    background: #919191;
+
+    border-radius: 6px;
+
+}
+
+.browsingtext h2,
+h3,
+h4,
+h5,
+.time,
+.location,
+.type {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.location button:hover {
+    cursor: pointer;
+}
+
+.headingdate,
+.typetime,
+.descriptionlocation {
+    display: flex;
+    margin: 3px;
+    text-align: right;
+
+
+}
+
+.descriptionlocation {
+    justify-content: space-between;
+}
+
+.typetime {
+    justify-content: space-between;
+    margin-top: -10px;
+}
+
+.type {
+    color: grey;
+    font-weight: 100;
+    font-size: 15px;
+}
+
+.headingdate {
+    justify-content: space-between;
+}
+
+.descriptionlocation {
+    width: 100%;
+    display: flex;
+
+}
+
+.description {
+    width: 70%;
+    margin-right: 5%;
+    text-align: start;
+    padding: 5px;
+    color: #737171;
+}
+
+.location {
+    width: 25%;
+    margin-top: 25px;
+}
+
+
+.headingdate div h2 {
+    margin-bottom: 0;
+    margin-top: 8px;
+}
+
+
+.date {
+    text-align: end;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.time {
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.date {
+    margin-top: 10px;
+}
+
+.location {
+
+
+    text-align: end;
+    padding: 3px;
+
+}
+
+
+
+.description {
+    margin-top: -3px;
+    margin-left: -5px
+}
+
+.location button {
+
+    background-color: lightseagreen;
+
+    border: none;
+    border-radius: 5px;
+    color: white;
+    margin-top: 26px;
+    padding: 8px 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+
+
+
+}
+
+.location button:hover {
+
+    background-color: lightseagreen;
+
+    border: none;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+
+}
+
+.browsemain_header {}

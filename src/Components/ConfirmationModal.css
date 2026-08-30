@@ -1,0 +1,45 @@
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    max-width: 400px;
+    text-align: center;
+}
+
+.modal-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.cancel-btn {
+    background: #e74c3c;
+    border: none;
+    width: 40%;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+.confirm-btn {
+    background: lightseagreen;
+    color: white;
+    border: none;
+    width: 40%;
+    padding: 10px 20px;
+    border-radius: 4px;
+}

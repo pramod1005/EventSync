@@ -1,0 +1,303 @@
+.home {
+
+    text-align: center;
+}
+
+.head-text {
+    font-family: "Roboto Slab", serif;
+    font-optical-sizing: auto;
+
+    font-style: normal;
+}
+
+.subhead-text {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.subhead-btn {
+    background-color: lightseagreen;
+    padding: 10px 30px;
+    margin-right: 20px;
+    outline: none;
+    border:1px #ffffff solid;
+    border-radius: 5px;
+}
+
+.home-head p {
+    padding-left: 20px;
+    font-size: large;
+    padding-bottom: 20px;
+}
+
+.sidehead {
+    text-align: left;
+    padding: 10px 0px;
+}
+
+body {
+    margin: 0;
+}
+
+.home-heading {
+    font-size: 45px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.home-head {
+    
+    width: 95.8%;
+    margin: 0 auto;
+    margin-top: 90px;
+    border-radius: 10px;
+    text-align: left;
+    background-color: #E8EDDF;
+}
+
+.discover-cards {
+    display: flex;
+    text-align: left;
+    justify-content: space-around;
+    width: 75%;
+    margin: 0 auto;
+    
+}
+
+.discover-cards div {
+    width: 30%;
+}
+
+.row-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.home-flex{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    column-gap: 10px;
+    margin-top: 10px;
+}
+.discover-home {
+    width: 70%;
+    border-radius: 10px;
+    background-color: #E8EDDF;
+    min-height: 750px;
+    
+}
+.subhead-divider{
+    color: #ffffff;
+    height: 1px;
+}
+.home-personal-reg{
+    width: 25%;
+    background-color: #E8EDDF;
+    border-radius: 10px;
+    min-height: 750px;
+}
+
+.event-cardholder {
+    display: flex;
+    justify-content: left;
+    margin-left: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-bottom: 30px;
+}
+
+.discover-details {
+    background-color: lightseagreen;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 0px;
+}
+
+.content {
+    position: relative;
+ background-color: #E8EDDF;
+    border-radius:10px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.22);
+    padding: 0px 0px 16px 0px;
+    margin: 16px;
+    width: 300px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    
+    text-align: left;
+
+}
+
+
+.contenth1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding-left: 10px;
+    margin:0;
+    color: #222;
+    text-align: left;
+}
+.notifyh1 {
+    font-size: 1rem;
+    font-weight: 600;
+    padding-left: 10px;
+    margin:0;
+    color: #222;
+    text-align: left;
+}
+.reg-notify-tile{ 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #E8EDDF;
+    border-radius: 5px;
+}
+.reg-notify-tile>div {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+.reg-notify-tile>div>img{
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+}
+.content-date{
+    font-weight: 200;
+    padding-left: 10px;
+    margin-top: -3px;
+    text-align: left;
+}
+
+.contenttext {
+
+    font-family: "Roboto Slab", serif;
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 5px;
+    text-align: center;
+    height: 200px;
+    max-width: 90%;
+    word-break: break-word;
+}
+
+.contentimg img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+
+}
+
+.contenta {
+    color: #2ca58d;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 20px;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.asvg {
+    margin-bottom: -6px;
+
+}
+
+.cta-button {
+    background-color: lightseagreen;
+    width: 220px;
+    height: 50px;
+    border: 0;
+    border-radius: 6px;
+    font-size: larger;
+    justify-self: end;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 10px -8px;
+    transition-duration: 0.2s;
+
+}
+
+
+
+
+
+.cta-button:hover {
+    transform: scale(1.039);
+    transition-duration: 0.2s;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+}
+
+.quick-signup p {
+    width: 70%;
+    margin-left: 15%;
+}
+
+.quick-signup input {
+    width: 25%;
+    background-color: #E8EDDF;
+    height: 40px;
+    color: #333533;
+    outline: lightseagreen;
+    border: none;
+    border-radius: 4px;
+    margin-right: 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 10px -8px;
+    padding-left: 14px;
+    font-size: medium;
+}
+
+.quick-signup button {
+    margin-left: 5px;
+    height: 40px;
+    width: 90px;
+    font-size: medium;
+    background-color: #E8EDDF;
+    border: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 10px -8px;
+    border-radius: 3px;
+    margin-bottom: 100px;
+}
+
+.home-subtext {
+    color: white;
+    padding-left: 20px;
+    font-size: large;
+}
+
+.divider {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+.divider-line {
+    background-color: lightseagreen;
+    height: 2px;
+    margin: 7px auto;
+}
+
+.short-line {
+    width: 10%;
+}
+
+.shorter-line {
+    width: 6%;
+}
