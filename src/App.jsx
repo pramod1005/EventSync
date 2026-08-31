@@ -13,7 +13,7 @@ import Chat from './communication/Chat.jsx';
 import Organizers from './Users/Organizers.jsx';
 import Orgprofile from './Organisers/Orgprofile.jsx';
 import EditEvent from './Organisers/EditEvent.jsx';
-import Attendeessignin from './signin/attendeessignin.jsx';
+import Attendeessignin from './signin/Attendeessignin.jsx';
 import Attendeessignup from './signin/Attendeessignup.jsx';
 import Organizerssignin from './signin/Organizerssignin.jsx';
 import Organizerssignup from './signin/Organizerssignup.jsx';
