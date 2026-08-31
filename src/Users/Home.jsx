@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import ConfirmationModal from '../components/ConfirmationModal';
+import ConfirmationModal from '../Components/ConfirmationModal';
 import './Home.css';
 import API_URL from "../config";
 
