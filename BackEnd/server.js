@@ -47,9 +47,14 @@ app.use('/uploads', express.static('uploads'));
 
 const db = mysql.createConnection({
   host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
+
+  ssl: {
+    rejectUnauthorized: false
+  }
 
 });
 
@@ -357,7 +362,7 @@ app.put('/events/:id/approve', (req, res) => {
 // Reject event
 app.put('/events/:id/reject', (req, res) => {
   const { id } = req.params;
-  db.query("UPDATE Events SET approved = 2 WHERE event_id = ?", [id], (err, result) => {
+  db.query("UPDATE events SET approved = 2 WHERE event_id = ?", [id], (err, result) => {
     if (err) return res.status(500).json({ error: "Error rejecting event" });
     res.json({ message: "Event rejected successfully" });
   });
@@ -473,7 +478,7 @@ app.post("/events/create", (req, res) => {
     return res.status(400).json({ error: "All fields are required!" });
   }
 
-  const query = `INSERT INTO Events (title, description, date, time, venue, capacity, cover_image, organiser, approved, reg_start_date, reg_end_date, price) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )`;
+  const query = `INSERT INTO events (title, description, date, time, venue, capacity, cover_image, organiser, approved, reg_start_date, reg_end_date, price) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )`;
 
   db.query(query, [title, description, date, time, venue, 0, "", organiser, 0, date, date, 0], (err, result) => {
     if (err) return res.status(500).json({ error: "Database error", details: err });
@@ -482,7 +487,7 @@ app.post("/events/create", (req, res) => {
 
     const categoryQueries = categories.map(category => {
       return new Promise((resolve, reject) => {
-        db.query(`INSERT INTO Categories (event_id, category) VALUES (?, ?)`, [eventId, category], (err) => {
+        db.query(`INSERT INTO categories (event_id, category) VALUES (?, ?)`, [eventId, category], (err) => {
           if (err) reject(err);
           else resolve();
         });
@@ -502,7 +507,7 @@ app.put("/events/update", (req, res) => {
     return res.status(400).json({ error: "All fields are required!" });
   }
 
-  const query = `UPDATE Events SET reg_start_date = ?, reg_end_date = ?, price = ?, capacity = ? WHERE event_id = ?`;
+  const query = `UPDATE events SET reg_start_date = ?, reg_end_date = ?, price = ?, capacity = ? WHERE event_id = ?`;
 
   db.query(query, [reg_start_date, reg_end_date, price, capacity, event_id], (err, result) => {
     if (err) return res.status(500).json({ error: "Database error", details: err });
@@ -522,7 +527,7 @@ app.post("/events/upload-pics", upload.fields([{ name: "images", maxCount: 10 },
 
 
   db.query(
-    "UPDATE Events SET cover_image = ? WHERE event_id = ?",
+    "UPDATE events SET cover_image = ? WHERE event_id = ?",
     [coverImagePath, event_id],
     (err) => {
       if (err) {
@@ -537,7 +542,7 @@ app.post("/events/upload-pics", upload.fields([{ name: "images", maxCount: 10 },
     const filePath = `uploads/${file.filename}`;
     return new Promise((resolve, reject) => {
       db.query(
-        "INSERT INTO EventPics (event_id, address) VALUES (?, ?)",
+        "INSERT INTO eventpics (event_id, address) VALUES (?, ?)",
         [event_id, filePath],
         (err) => {
           if (err) reject(err);
@@ -555,7 +560,7 @@ app.post("/events/upload-pics", upload.fields([{ name: "images", maxCount: 10 },
 app.get("/events/recent", (req, res) => {
   const query = `
       SELECT event_id, title,DATE_FORMAT(date, '%Y-%m-%d') as date, cover_image 
-      FROM Events 
+      FROM events 
       WHERE approved = 1 
       ORDER BY event_id DESC
   `;
@@ -617,8 +622,8 @@ app.get("/events/filter", (req, res) => {
   let query = `
     SELECT e.event_id, e.title, e.description, e.date, e.time, e.venue, e.cover_image, 
            GROUP_CONCAT(c.category) AS categories
-    FROM Events e
-    LEFT JOIN Categories c ON e.event_id = c.event_id
+    FROM events e
+    LEFT JOIN categories c ON e.event_id = c.event_id
     WHERE e.approved = 1
     `;
 
@@ -642,7 +647,7 @@ app.get("/events/filter", (req, res) => {
   if (categories) {
     const categoryList = categories.split(",").map(cat => `'${cat}'`).join(",");
     query += ` AND e.event_id IN (
-      SELECT event_id FROM Categories WHERE category IN (${categoryList})
+      SELECT event_id FROM categories WHERE category IN (${categoryList})
     )`;
   }
 
@@ -678,7 +683,7 @@ app.get("/events/:eventId", (req, res) => {
   db.query(
     `SELECT event_id, title, description, date, time, venue, capacity, organiser, approved, 
             reg_start_date, reg_end_date, price, cover_image 
-     FROM Events 
+     FROM events 
      WHERE event_id = ?`,
     [eventId],
     (err, eventResults) => {
@@ -693,7 +698,7 @@ app.get("/events/:eventId", (req, res) => {
       const event = eventResults[0];
 
       db.query(
-        `SELECT category FROM Categories WHERE event_id = ?`,
+        `SELECT category FROM categories WHERE event_id = ?`,
         [eventId],
         (err, categoryResults) => {
           if (err) {
@@ -704,7 +709,7 @@ app.get("/events/:eventId", (req, res) => {
           event.categories = categoryResults.map(row => row.category);
 
           db.query(
-            `SELECT address FROM EventPics WHERE event_id = ?`,
+            `SELECT address FROM eventpics WHERE event_id = ?`,
             [eventId],
             (err, picturesResults) => {
               if (err) {
@@ -757,7 +762,7 @@ app.post("/events/custom-fields", (req, res) => {
 
   const insertValues = fields.map(field => [event_id, field.name, field.type]);
 
-  const query = `INSERT INTO EventFields (event_id, field_name, field_type) VALUES ?`;
+  const query = `INSERT INTO eventfields (event_id, field_name, field_type) VALUES ?`;
 
   db.query(query, [insertValues], (err, result) => {
     if (err) {
@@ -810,7 +815,7 @@ app.get("/registrations/check", (req, res) => {
   const { eventId, userId } = req.query;
 
   const query = `
-    SELECT 1 FROM Registrations
+    SELECT 1 FROM registrations
     WHERE event_id = ? AND user_id = ?
     LIMIT 1
   `;
@@ -832,8 +837,8 @@ app.get('/organizer/events', async (req, res) => {
     const [events] = await db.promise().query(
       `SELECT e.event_id, e.title, e.date, e.time, e.venue, e.capacity, e.reg_end_date, e.approved,
           GROUP_CONCAT(DISTINCT c.category) AS category
-   FROM Events e
-   LEFT JOIN Categories c ON e.event_id = c.event_id
+   FROM events e
+   LEFT JOIN categories c ON e.event_id = c.event_id
    WHERE e.organiser = ?
    GROUP BY e.event_id`,
       [organizerId]
@@ -847,7 +852,7 @@ app.get('/organizer/events', async (req, res) => {
 
     for (const event of events) {
       const [registrations] = await db.promise().query(
-        'SELECT COUNT(*) AS count FROM Registrations WHERE event_id = ?',
+        'SELECT COUNT(*) AS count FROM registrations WHERE event_id = ?',
         [event.event_id]
       );
 
@@ -920,8 +925,8 @@ app.get('/chat/rooms/:role/:userId', (req, res) => {
   `;
 
   const commonJoins = `
-    FROM Messages m
-    JOIN Events e ON m.event_id = e.event_id
+    FROM messages m
+    JOIN events e ON m.event_id = e.event_id
     LEFT JOIN users u ON m.sender_role = 'attendee' AND m.sender_id = u.user_id
     LEFT JOIN users u2 ON m.receiver_role = 'attendee' AND m.receiver_id = u2.user_id
     LEFT JOIN organisers o ON m.sender_role = 'organizer' AND m.sender_id = o.organiser_id
@@ -961,7 +966,7 @@ app.post("/chat/mark-seen", (req, res) => {
   const { event_id, receiver_id, receiver_role, sender_id, sender_role } = req.body;
 
   db.query(
-    `UPDATE Messages
+    `UPDATE messages
      SET is_seen = 1
      WHERE event_id = ? AND receiver_id = ? AND receiver_role = ? AND sender_id = ? AND sender_role = ? AND is_seen = 0`,
     [event_id, receiver_id, receiver_role, sender_id, sender_role],
@@ -979,7 +984,7 @@ app.post("/chat/mark-seen", (req, res) => {
 app.get('/chat/unread-count', (req, res) => {
   const { user_id, role } = req.query;
 
-  const query = `SELECT COUNT(*) AS unread FROM Messages WHERE receiver_id = ? AND receiver_role = ? AND is_seen = 0`;
+  const query = `SELECT COUNT(*) AS unread FROM messages WHERE receiver_id = ? AND receiver_role = ? AND is_seen = 0`;
 
   db.query(query, [user_id, role], (err, results) => {
     if (err) {
