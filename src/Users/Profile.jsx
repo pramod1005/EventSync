@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ConfirmationModal from "../components/ConfirmationModal";
+import ConfirmationModal from "../Components/ConfirmationModal";
 import "./Profile.css";
 import API_URL from "../config";
 
